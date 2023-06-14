@@ -5,36 +5,40 @@
     <title>Shop</title>
     <style>
         @import url(https://fonts.googleapis.com/css2?family=Montserrat:wght@200;500&display=swap);
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Montserrat', sans-serif;
             font-weight: 200;
-            color: var(--tg-theme-text-color);
-            background: var(--tg-theme-bg-color);
+            color: #333; /* Значение по умолчанию для текстового цвета */
+            background: #fff; /* Значение по умолчанию для цвета фона */
         }
-        
-        #main {
+
+        main {
             width: 100%;
             padding: 20px;
             text-align: center;
         }
-        
+
         h1 {
-            width: 70px;
-            margin: 30px auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin-top: -60px; /* Половина высоты заголовка */
+            width: fit-content;
         }
-        
+
         p {
             width: 350px;
             margin: 0 auto;
         }
-        
+
         button {
             border: 0;
             border-radius: 5px;
@@ -45,23 +49,44 @@
             font-weight: 500;
             cursor: pointer;
             transition: all 500ms ease;
-            color: var(--tg-theme-button-color);
-            background: var(--tg-theme-button-text-color);
+            color: #fff; /* Значение по умолчанию для цвета текста кнопки */
+            background: #333; /* Значение по умолчанию для цвета фона кнопки */
         }
-        
-        button:hover{
-            background: var(--tg-theme-secondary-bg-color);
+
+        button:hover {
+            background: #666; /* Значение по умолчанию для цвета фона кнопки при наведении */
+        }
+
+        .image-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin-top: 10%;
+        }
+
+        #main {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #main > * {
+            margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
-    <div>id='main'
-        <h1>Bicycle for rent</h1>
-        <img src="https://cdn-icons-png.flaticon.com/512/3782/3782899.png">
-        <p>Paragraph</p>
+    <div id="main">
+        <div class="image-wrapper">
+            <img src="https://cdn-icons-png.flaticon.com/512/3782/3782899.png" alt="Bicycle Image">
+            <h1>Bicycle for rent</h1>
+        </div>
+        <p>New bike - new experience</p>
         <button id="buy">Order</button>
     </div>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
-
 </body>
 </html>
