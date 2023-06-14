@@ -15,8 +15,8 @@
         body {
             font-family: 'Montserrat', sans-serif;
             font-weight: 200;
-            color: var(--tg-theme-text-color); /* Значение по умолчанию для текстового цвета */
-            background: var(--tg-theme-bg-color); /* Значение по умолчанию для цвета фона */
+            color: #333; /* Значение по умолчанию для текстового цвета */
+            background: #fff; /* Значение по умолчанию для цвета фона */
         }
 
         main {
@@ -49,12 +49,12 @@
             font-weight: 500;
             cursor: pointer;
             transition: all 500ms ease;
-            color: var(--tg-theme-button-color); /* Значение по умолчанию для цвета текста кнопки */
-            background: var(--tg-theme-button-text-color); /* Значение по умолчанию для цвета фона кнопки */
+            color: #fff; /* Значение по умолчанию для цвета текста кнопки */
+            background: #333; /* Значение по умолчанию для цвета фона кнопки */
         }
 
         button:hover {
-            background: var(--tg-theme-button-text-color); /* Значение по умолчанию для цвета фона кнопки при наведении */
+            background: #666; /* Значение по умолчанию для цвета фона кнопки при наведении */
         }
 
         .image-wrapper {
@@ -76,6 +76,25 @@
         #main > * {
             margin-bottom: 20px;
         }
+        
+        #form {
+            display: none;
+            text-align: center;
+        }
+        
+        input {
+            width: 90%;
+            outline: none;
+            margin: 10px 5%;
+            padding: 15px 10px;
+            font-size: 14px;
+            border: 2px solid silver;
+            border-radius: 5px;
+        }
+        
+        input:focus {
+            border-color: #db5d5d;
+        }
     </style>
 </head>
 <body>
@@ -87,6 +106,27 @@
         <p>New bike - new experience</p>
         <button id="buy">Order</button>
     </div>
+    <form id="form">
+        <input type="text" placeholder="Name" id="user_name">
+        <input type="text" placeholder="Email" id="user_email">
+        <input type="text" placeholder="Phone" id="user_phone">
+        <button id="order">GO!</button>
+    </form>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script>
+        let tg = window.Telegram.WebApp;
+        let buy = document.getElementById('buy');
+        let order = document.getElementById('order')
+        
+        buy.addEventListener("click", () => {
+            document.getElementById("main").style.display = "none";
+            document.getElementById("form").style.display = "block";
+            document.getElementById("user_name").value = tg.initDataUnsafe.user.first_name + " " + tg.initDataUnsafe.user.last_name;
+        });
+        
+        order.addEventListener("click", () => {
+            tg.close();
+        })
+    </script>
 </body>
 </html>
