@@ -15,8 +15,8 @@
         body {
             font-family: 'Montserrat', sans-serif;
             font-weight: 200;
-            color: #333; /* Значение по умолчанию для текстового цвета */
-            background: #fff; /* Значение по умолчанию для цвета фона */
+            color: var(--tg-theme-text-color); /* Значение по умолчанию для текстового цвета */
+            background: var(--tg-theme-bg-color); /* Значение по умолчанию для цвета фона */
         }
 
         main {
@@ -49,12 +49,12 @@
             font-weight: 500;
             cursor: pointer;
             transition: all 500ms ease;
-            color: #fff; /* Значение по умолчанию для цвета текста кнопки */
-            background: #333; /* Значение по умолчанию для цвета фона кнопки */
+            color: var(--tg-theme-button-color); /* Значение по умолчанию для цвета текста кнопки */
+            background: var(--tg-theme-button-text-color); /* Значение по умолчанию для цвета фона кнопки */
         }
 
         button:hover {
-            background: #666; /* Значение по умолчанию для цвета фона кнопки при наведении */
+            background: var(--tg-theme-button-text-color); /* Значение по умолчанию для цвета фона кнопки при наведении */
         }
 
         .image-wrapper {
